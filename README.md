@@ -8,8 +8,17 @@ No manipulation of votes: No person will be able to manipulate the votes. Also, 
 - **Face Recognition and OTP verification (2-Factor Authentication)**: We plan to enable an online voting system in which people can vote through the internet, from anywhere over the world. In order to prevent voter fraud, we use 2-factor authentication. In the first level of security, the face of the voter is captured by a web camera and sent to the backend. Later, the face of the person is verified with the face present in the database and validated.  A password (OTP) is used as the second level of security. After entering the one time password generated to their mail, it is verified and the voter is allowed to vote.
 
 ## Business Value
-- The concept of online voting will motivate most voters to cast their votes online instead of being physically present at a voting booth. Only the people who do not have access to internet facilities or required hardware (like a computer or a mobile phone) can come to voting booths to vote.
+- With online voting, only the people who do not have access to internet facilities or required hardware (like a computer or a mobile phone) can come to voting booths to vote.
 - The voting booths can just be a normal computer connected to our application. Hence a lot of cost is saved in eliminating the need for EVMs.
-- As no form of hacking can happen unlike in the case of EVMs,  very minimal security is required at these booths, which again saves a huge cost spent on elections by the government. This also means that the need for having multiple phases of election is eliminated. And voting all over the country can be completed in a single day.
-- Ease of voting online, from any place over the globe instead of physically being present in the particular voting booth a person has been assigned to. This will increase voter turnout by a drastic amount.
+- As no form of hacking can happen unlike in the case of EVMs, very minimal security is required at these booths, which again saves a huge cost spent on elections by the government. This also means that voting all over the country can be completed in a single day.
+- The option of voting online will increase voter turnout by a drastic amount.
+
+## Feasibility
+- **Cost Effective** <br>
+There is no central administration which verifies the transaction hence the cost of maintaining a centralized interface is eliminated. 
+- **Ease Of Deployment** <br>
+With blockchain, once the infrastructure has been set up it can be used again and again with minimal modifications. Need of a central administrator is reduced, hence easier to deploy.
+- **Secure And Fault Tolerant** <br>
+It is highly secure and fault tolerant because each node keeps a copy of the records and check each other in order to make a secure system. There is encryption involved at every stage which makes it highly reliable and secure.
+
 
