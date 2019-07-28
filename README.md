@@ -1,4 +1,4 @@
-## Idea
+# Idea
 
 To make an online voting application using Azure Blockchain which can give the poll results immediately after the voting session, and is secure from any kind of manipulation of data. Since an online voting can be done remotely from anywhere in the world, authenticating and authorizing  the user is of utmost importance. To do this we use 2-factor authentication ,the first being facial recognition and the second being OTP verification.
 
@@ -12,14 +12,4 @@ No manipulation of votes: No person will be able to manipulate the votes. Also, 
 - The voting booths can just be a normal computer connected to our application. Hence a lot of cost is saved in eliminating the need for EVMs.
 - As no form of hacking can happen unlike in the case of EVMs,  very minimal security is required at these booths, which again saves a huge cost spent on elections by the government. This also means that the need for having multiple phases of election is eliminated. And voting all over the country can be completed in a single day.
 - Ease of voting online, from any place over the globe instead of physically being present in the particular voting booth a person has been assigned to. This will increase voter turnout by a drastic amount.
-
-## Feasibility
-- **Cost Effective** <br>
-There is no central administration which verifies the transaction hence the cost of maintaining a centralized interface is eliminated. Our blockchain based system provides complete trust and privacy for all the users. It also enables secret ballot and open counting procedure and hence doesn’t undermine the spirit of elections.
-
-- **Ease Of Deployment** <br>
-Blockchain based solutions for voting in an election is easier to deploy as compared to traditional methods where setting up of the EVM, a proper administration of the place where elections are to be help, high security in the region etc had to be done. With blockchain, once the infrastructure has been set up it can be used again and again with minimal modifications. It reduces security issues as well as the need of a central administrator, hence easier to deploy.
-
-- **Secure And Fault Tolerant** <br>
-It is highly secure and fault tolerant because each node keeps a copy of the records and check each other in order to make a secure system. Each block keeps a hash of the previous block which in turn forms a chain linked to each other. There is encryption involved at every stage which makes it highly reliable and secure.
 
