@@ -3,6 +3,15 @@ App = {
   contracts: {},
   account: '0x0',
   hasVoted: false,
+  closingTime: {
+    year: 2019,
+    month: 7,
+    date: 16,
+    hour: 21,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0
+  },
 
   init: function() {
     return App.initWeb3();
@@ -52,13 +61,54 @@ App = {
     });
   },
 
+  electionResults : function () {
+    $("#Title").html('Election Results');
+  },
+
+  displayTime: function() {
+    var today = new Date();
+    var closingDate = new Date(App.closingTime.year, App.closingTime.month, App.closingTime.date, 
+      App.closingTime.hour, App.closingTime.minutes, App.closingTime.seconds, 
+      App.closingTime.milliseconds);
+    
+    $("#ClosingTime").html('Voting ends at : ' + closingDate);
+
+    var remSeconds = Math.max(0, Math.floor((closingDate.getTime() - today.getTime()) / 1000));
+    var remDays = Math.floor(remSeconds / (60 * 60 * 24));
+    remSeconds -= remDays * 60 * 60 * 24;
+
+    var remHours = Math.floor(remSeconds / (60*60));
+    remSeconds -= remHours * 60 * 60;
+
+    var remMinutes = Math.floor(remSeconds / 60);
+    remSeconds -= remMinutes * 60;
+
+    $("#RemainingTime").html('Time left until closing : ' + remDays + ' Day(s), ' + 
+      remHours + ' Hour(s), ' + remMinutes + ' Minute(s), ' + remSeconds + ' Second(s)');
+
+    var refresh=1000; // Refresh rate in milli seconds
+    mytime=setTimeout('App.displayTime()',refresh)
+  },
+
   render: function() {
     var electionInstance;
     var loader = $("#loader");
     var content = $("#content");
+    var closingDate = new Date(App.closingTime.year, App.closingTime.month, App.closingTime.date, 
+      App.closingTime.hour, App.closingTime.minutes, App.closingTime.seconds, 
+      App.closingTime.milliseconds);
+      var now = new Date();
 
     loader.show();
-    content.hide();
+    content.hide
+    $('#Title').html('Cast your vote!');
+    if(now < closingDate)
+      $('#Votes').hide();
+    else {
+      $('#Votes').show();
+      $('#Title').html('Election Results');
+    }
+    App.displayTime();
 
     // Load account data
     web3.eth.getCoinbase(function(err, account) {
@@ -93,7 +143,13 @@ App = {
           var voteCount = candidate[2];
 
           // Render candidate Result
-          var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
+          var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td>";
+          if(now < closingDate) {
+            candidateTemplate += "</tr>";
+          }
+          else {
+            candidateTemplate += "<td>" + voteCount + "</td></tr>";
+          }
           candidatesResults.append(candidateTemplate);
 
           // Render candidate ballot option
@@ -107,6 +163,8 @@ App = {
       // Do not allow a user to vote
       if(hasVoted) {
         $('form').hide();
+        if(now < closingDate)
+          $("#Title").html('Thank you for casting your vote!');
       }
       loader.hide();
       content.show();
