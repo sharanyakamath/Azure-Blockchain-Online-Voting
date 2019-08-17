@@ -1,0 +1,15 @@
+~*
+*.log
+*.pot
+*.pyc
+*.sqlite
+*.egg-info
+.tox/
+.idea/
+.coverage
+/dist
+/IGNORE
+/MANIFEST
+/demo/demoproject/media/*
+/docs/OUT/
+/manage.py

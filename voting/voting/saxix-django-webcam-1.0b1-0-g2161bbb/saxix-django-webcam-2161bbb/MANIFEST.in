@@ -1,0 +1,12 @@
+include README.rst
+include AUTHORS
+include LICENSE
+include CHANGES
+include MANIFEST.in
+include setup.py
+include webcam/requirements.pip
+
+recursive-include webcam *.py
+recursive-include webcam/static *.*
+recursive-include webcam/templates *.*
+recursive-include webcam/tests/data *.*
