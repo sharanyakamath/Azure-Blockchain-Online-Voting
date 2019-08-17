@@ -3,10 +3,11 @@ App = {
   contracts: {},
   account: '0x0',
   hasVoted: false,
+  PRIME: 1000000007,
   closingTime: {
     year: 2019,
     month: 7,
-    date: 16,
+    date: 17,
     hour: 21,
     minutes: 0,
     seconds: 0,
@@ -61,9 +62,6 @@ App = {
     });
   },
 
-  electionResults : function () {
-    $("#Title").html('Election Results');
-  },
 
   displayTime: function() {
     var today = new Date();
@@ -173,8 +171,25 @@ App = {
     });
   },
 
+  getOTP : function (address) {
+    var hash = 0;
+    for(var i=0; i<address.length; i++) {
+      hash = (hash * 256 + address.charCodeAt(i)) % App.PRIME;
+    }
+    console.log(hash);
+    return hash;
+  },
+
   castVote: function() {
     var candidateId = $('#candidatesSelect').val();
+    var OTP = $("#OTP").val();
+    var senderAddress = App.account;
+
+    if(OTP != App.getOTP(senderAddress)) {
+      alert('Invalid OTP');
+      return;
+    }
+
     App.contracts.Election.deployed().then(function(instance) {
       return instance.vote(candidateId, { from: App.account });
     }).then(function(result) {
