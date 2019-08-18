@@ -1,4 +1,14 @@
 #!/bin/sh
 
-echo "hello"
-face_recognition /home/palak/known_people/ /home/palak/unknown_pictures/
+touch file
+echo "">file
+face_recognition ../voting/known_people/ ../voting/unknown_people/ >file
+find unknown_people/* -delete
+
+output=$(python ./votes/check.py)
+
+echo "">out
+
+echo $output >out
+echo $output
+

@@ -7,6 +7,8 @@ import base64
 from django.core.files.base import ContentFile
 from django.core.files.images import ImageFile
 from django.core.files import File
+import os
+
 
 import subprocess
 # Create your views here.
@@ -30,8 +32,9 @@ def pic(request):
     if request.method == "POST":
         username = request.POST['username']
         picture = request.POST['picture']
-
-        with open("test.png", "wb") as fh:
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        file_path = os.path.join(BASE_DIR+'/unknown_people/', username + ".png") 
+        with open(file_path, "wb") as fh:
             temp = base64.decodebytes(str.encode(picture.split("base64,")[1]))
             fh.write(temp)
 
@@ -43,10 +46,17 @@ def pic(request):
 
 def index(request):
     if request.POST:
-        # give the absolute path to your `text4midiAllMilisecs.py`
-        # and for `tiger.mid`
-        # subprocess.call(['python', '/path/to/text4midiALLMilisecs.py', '/path/to/tiger.mid'])
+        subprocess.call('./votes/run_sh.sh')
+        with open('out', 'r') as file:
+            f = file.read().replace('\n', '')
+        print("ksk")
+        print(f)
+        if f== "0":
+            return render(request, 'home.html')
+        else:
+            return render(request, 'verify.html')
+    else:
+        return render(request, 'verify.html')
 
-        subprocess.call('/home/palak/CodeFunDo19/voting/votes/run_sh.sh')
-
-    return render(request, 'home.html')
+def verify(request):
+    return render(request, 'verify.html')
