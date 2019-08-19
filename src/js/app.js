@@ -7,7 +7,7 @@ App = {
   closingTime: {
     year: 2019,
     month: 7,
-    date: 17,
+    date: 22,
     hour: 21,
     minutes: 0,
     seconds: 0,
@@ -105,6 +105,7 @@ App = {
     else {
       $('#Votes').show();
       $('#Title').html('Election Results');
+      $('form').hide();
     }
     App.displayTime();
 
@@ -162,7 +163,7 @@ App = {
       if(hasVoted) {
         $('form').hide();
         if(now < closingDate)
-          $("#Title").html('Thank you for casting your vote!');
+          $("#Title").html('Thank you for casting your vote!');      
       }
       loader.hide();
       content.show();
