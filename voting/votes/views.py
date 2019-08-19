@@ -8,7 +8,11 @@ from django.core.files.base import ContentFile
 from django.core.files.images import ImageFile
 from django.core.files import File
 
+from voting.settings import GMAIL_USERNAME, GMAIL_PASSWORD
+
+import yagmail
 import subprocess
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -49,4 +53,18 @@ def index(request):
 
         subprocess.call('/home/palak/CodeFunDo19/voting/votes/run_sh.sh')
 
+    return render(request, 'home.html')
+
+def send_email(request):
+    email_message = """
+    Hi voter!
+
+    Here is your OTP : 
+    Please do cast your vote
+
+    Regards
+    Team WeAreInevitable
+    """
+    yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
+    yag.send(to = GMAIL_USERNAME, subject ='Elections 2019', contents = email_message)
     return render(request, 'home.html')
