@@ -9,5 +9,6 @@ urlpatterns = [
     path('add_item/', views.add_item, name='add_item'),
     path('pic/', views.pic, name='get_pic'),
     path('run_sh/',  views.index, name='run_sh'),
-    path('verify/', views.verify, name='verify')
+    path('verify/', views.verify, name='verify'),
+    path('email/', views.send_email, name='email')
 ]

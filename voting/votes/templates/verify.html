@@ -6,7 +6,16 @@
   <h2 class="display-3">Secure Election System</h2>
   <p class="lead">You are Verified</p>
   <hr class="my-4">
-  <a href="/votes/pic" class="btn btn-primary">Generate OTP</a>
+  <form action="{% url 'email' %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <div class="form-group">
+        <input class="form-control mr-sm-2" placeholder="Enter email ID" id= "email" name="email" type="text"><br/>
+        <input class="form-control mr-sm-2" placeholder="Enter your Etherium Blockchain Address" id= "address" name="address" type="text"><br/>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary" type="submit">Generate OTP</button>
+  </form>
 <!-- <form role="form" action="{% url 'add_item'%}" method="post" enctype="multipart/form-data"> -->
   <!-- <form role="form">
     {% csrf_token %}
