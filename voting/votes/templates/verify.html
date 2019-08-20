@@ -31,7 +31,7 @@
     <button onclick="myFunction()" class="btn btn-primary">Add</button>
   </fieldset>
 </form>
-<form action="{% url 'run_sh' %}" method="POST">
+<form action="{% url 'authorize' %}" method="POST">
     {% csrf_token %}
     <button type="submit">Call</button>
 </form> -->

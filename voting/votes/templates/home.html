@@ -4,9 +4,9 @@
 
 <div class="jumbotron">
   <h2 class="display-3">Secure Election System</h2>
-  <p class="lead">The system interfaces and integrates the majority of electronic information within the electoral system, to make elections, referendum, and polls more secure, reliable, and transparent..</p>
+  <p class="lead">Sorry, we couldn't authenticate you :(</p>
   <hr class="my-4">
-  <a href="/votes/pic" class="btn btn-primary">Authenticate Yourself Voter !!!</a>
+  <a href="/" class="btn btn-primary">Authenticate myself</a>
 <!-- <form role="form" action="{% url 'add_item'%}" method="post" enctype="multipart/form-data"> -->
   <!-- <form role="form">
     {% csrf_token %}
@@ -22,7 +22,7 @@
     <button onclick="myFunction()" class="btn btn-primary">Add</button>
   </fieldset>
 </form>
-<form action="{% url 'run_sh' %}" method="POST">
+<form action="{% url 'authorize' %}" method="POST">
     {% csrf_token %}
     <button type="submit">Call</button>
 </form> -->

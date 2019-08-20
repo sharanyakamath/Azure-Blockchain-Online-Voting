@@ -15,7 +15,7 @@
     
 
 <body>
-
+  
     <div class="jumbotron">
         <h5 class="display-3">Secure Election System</h5>
         <br/>
@@ -34,7 +34,7 @@
             <button onclick="myFunction()" class="btn btn-primary">Add</button>
           </fieldset>
         </form>
-        <form action="{% url 'run_sh' %}" method="POST">
+        <form action="{% url 'authorize' %}" method="POST">
             {% csrf_token %}
             <button type="submit">Call</button>
         </form> -->
@@ -59,7 +59,7 @@
   </div>
 </div>
 </form>
-<form action="{% url 'run_sh' %}" method="POST">
+<form action="{% url 'authorize' %}" method="POST">
     {% csrf_token %}
     <button class="btn btn-primary" type="submit">Verify Image and Username</button>
 </form>
@@ -158,7 +158,7 @@
         var data = canvas.toDataURL('image/png').replace("image/png", "image/octet-stream");
         photo.setAttribute('src', data);
 
-        $.post('/votes/pic/', {
+        $.post('/', {
             'username': document.getElementById('name').value,
             'picture': data
         }, function(response) {});

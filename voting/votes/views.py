@@ -21,13 +21,12 @@ def home(request):
 
 def add_item(request):
     if request.method == "POST":
-        print('Hi')
         username = request.POST['username']
         picture = request.FILES['picture']
 
         person = Person(username=username, picture=picture)
         person.save()
-        return HttpResponseRedirect('/votes/home')
+        return HttpResponseRedirect('/home')
     else:
         return render(request, 'home.html')
 
@@ -48,19 +47,25 @@ def pic(request):
 
         person = Person(username=username, picture=picture)
         person.save()
-        return HttpResponseRedirect('/votes/home')
+        return HttpResponseRedirect('/home')
     else:
         return render(request, 'pic.html')
 
 def index(request):
     if request.POST:
-        subprocess.call('./votes/run_sh.sh')
+        subprocess.call('./votes/authorize.sh')
         with open('out', 'r') as file:
             f = file.read().replace('\n', '')
-        print("ksk")
-        print(f)
+
+        if os.path.exists('./file'):
+            os.remove('./file')
+        if os.path.exists('./out'):
+            os.remove('./out')
+        if os.path.exists('./unknown_people/.png'):
+            os.remove('./unknown_people/.png')
+
         if f== "0":
-            return render(request, 'home.html')
+            return HttpResponseRedirect('/home')
         else:
             return render(request, 'verify.html')
     else:
