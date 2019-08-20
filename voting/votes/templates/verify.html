@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+
+<div class="jumbotron">
+  <h2 class="display-3">Secure Election System</h2>
+  <p class="lead">You are Verified</p>
+  <hr class="my-4">
+  <form action="{% url 'email' %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <div class="form-group">
+        <input class="form-control mr-sm-2" placeholder="Enter email ID" id= "email" name="email" type="text"><br/>
+        <input class="form-control mr-sm-2" placeholder="Enter your Etherium Blockchain Address" id= "address" name="address" type="text"><br/>
+      </div>
+    </fieldset>
+    <button class="btn btn-primary" type="submit">Generate OTP</button>
+  </form>
+
+</div>
+
+
+{% endblock %}

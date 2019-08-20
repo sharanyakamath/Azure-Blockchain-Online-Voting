@@ -2,39 +2,12 @@
 {% block title %}Home{% endblock %}
 {% block body %}
 
-<script>
-    function myFunction(){
-     var x = document.getElementById("name").value;
-     var file = document.GetElementById('picture');
-     console.log(x);
-     console.log(file.files[0].name);
-     file.files[0].name=x;
-  }
-  </script>
 <div class="jumbotron">
   <h2 class="display-3">Secure Election System</h2>
-  <p class="lead">The system interfaces and integrates the majority of electronic information within the electoral system, to make elections, referendum, and polls more secure, reliable, and transparent..</p>
+  <p class="lead">Sorry, we couldn't authenticate you :(</p>
   <hr class="my-4">
-  
-<!-- <form role="form" action="{% url 'add_item'%}" method="post" enctype="multipart/form-data"> -->
-  <form role="form">
-    {% csrf_token %}
-  <fieldset>
-    <div class="form-group">
-      <input class="form-control mr-sm-2" placeholder="Enter username" id= "name" name="username" type="text">
+  <a href="/" class="btn btn-primary">Authenticate myself</a>
 
-   </div>
-    <div class="form-group">
-      <label for="image">Image</label>
-      <input type="file" class="form-control" id="picture" name="picture" placeholder="Enter Image">
-    </div>
-    <button onclick="myFunction()" class="btn btn-primary">Add</button>
-  </fieldset>
-</form>
-<form action="{% url 'run_sh' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Call</button>
-</form>
 </div>
 
 

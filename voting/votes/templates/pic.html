@@ -1,32 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+
+
 <!doctype html>
 <html>
-<head>
-	<title>WebRTC: Still photo capture demo</title>
-	<meta charset='utf-8'>
-	<link rel="stylesheet" href="main.css" type="text/css" media="all">
-	<script src="capture.js">
-	</script>
-</head>
+    <head>
+        <title>Photo Capture</title>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" href="main.css" type="text/css" media="all">
+        <script src="capture.js">
+        </script>
+      </head>
+    
+
 <body>
-<div class="contentarea">
-	<h1>
-		MDN - WebRTC: Still photo capture demo
-	</h1>
-	<p>
-		This example demonstrates how to set up a media stream using your built-in webcam, fetch an image from that stream, and create a PNG using that image.
-	</p>
-  <div class="camera">
-    <video id="video">Video stream not available.</video>
-    <button id="startbutton">Take photo</button> 
+  
+    <div class="jumbotron">
+        <h5 class="display-3">Secure Election System</h5>
+        <br/>
+       
+    <form role="form">
+        {% csrf_token %}
+      <fieldset>
+        <div class="form-group">
+          <input class="form-control mr-sm-2" placeholder="Enter username" id= "name" name="username" type="text">
+       </div>
+      </fieldset>
+   
+<!-- <div class="contentarea"> -->
+  <div class="row">
+    <div class="column">
+      <div class="camera">
+        <video id="video">Video stream not available.</video>
+        <button id="startbutton">Take photo</button> 
+      </div>
+    </div>
+    <canvas id="canvas">
+    </canvas>
+    <div class="column">
+      <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box."> 
+      </div>
+    </div>
   </div>
-  <canvas id="canvas">
-  </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box."> 
-  </div>
-	<p>
-		Visit our article <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos"> Taking still photos with WebRTC</a> to learn more about the technologies used here.
-	</p>
+</form>
+<form action="{% url 'authorize' %}" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit">Verify Image and Username</button>
+</form>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -122,8 +144,8 @@
         var data = canvas.toDataURL('image/png').replace("image/png", "image/octet-stream");
         photo.setAttribute('src', data);
 
-        $.post('/votes/pic/', {
-            'username': 'ashwin',
+        $.post('/', {
+            'username': document.getElementById('name').value,
             'picture': data
         }, function(response) {});
 
@@ -189,3 +211,4 @@
 </style>
 
 </html>
+{% endblock %}
