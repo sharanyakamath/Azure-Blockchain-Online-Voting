@@ -17,13 +17,14 @@
 <body>
   
     <div class="jumbotron">
-        <h5 class="display-3">Secure Election System</h5>
+        <h5 class="display-3">Voting made secure and easy</h5>
         <br/>
        
     <form role="form">
         {% csrf_token %}
       <fieldset>
         <div class="form-group">
+          <label for="Username">Username</label>
           <input class="form-control mr-sm-2" placeholder="Enter username" id= "name" name="username" type="text">
        </div>
       </fieldset>
