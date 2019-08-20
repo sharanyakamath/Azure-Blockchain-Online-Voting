@@ -12,6 +12,7 @@ from voting.settings import GMAIL_USERNAME, GMAIL_PASSWORD
 
 import yagmail
 import subprocess
+
 # Create your views here.
 
 PRIME = 1000000007
@@ -95,4 +96,18 @@ def send_email(request):
 
     yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
     yag.send(to = request.POST['email'], subject ='Elections 2019', contents = email_message)
+    return render(request, 'home.html')
+
+def send_email(request):
+    email_message = """
+    Hi voter!
+
+    Here is your OTP : 
+    Please do cast your vote
+
+    Regards
+    Team WeAreInevitable
+    """
+    yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
+    yag.send(to = GMAIL_USERNAME, subject ='Elections 2019', contents = email_message)
     return render(request, 'home.html')
