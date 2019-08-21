@@ -7,7 +7,7 @@ App = {
   closingTime: {
     year: 2019,
     month: 7,
-    date: 22,
+    date: 21,
     hour: 21,
     minutes: 0,
     seconds: 0,
