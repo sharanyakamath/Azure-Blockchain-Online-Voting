@@ -60,7 +60,7 @@
 </form>
 <form action="{% url 'authorize' %}" method="POST">
     {% csrf_token %}
-    <button id="Verify" class="waves-effect waves-light btn" onclick="loading()">Verify Image and Username
+    <button id="Verify" class="waves-effect waves-light btn disabled" onclick="loading()">Verify Image and Username
       </button>
       <div class="preloader-wrapper small active" id="loader">
           <div class="spinner-layer spinner-green-only">
@@ -170,6 +170,8 @@
   // other changes before drawing it.
 
   function takepicture() {
+    $('#Verify').removeClass("waves-effect waves-light btn disabled");
+    $('#Verify').addClass("waves-effect waves-light btn");
     var context = canvas.getContext('2d');
     if (width && height) {
         canvas.width = width;
