@@ -10,5 +10,3 @@ output=$(python ./votes/check.py)
 echo "">out
 
 echo $output >out
-echo $output
-
