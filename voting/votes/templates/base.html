@@ -5,28 +5,27 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     {% load staticfiles %}
-{#    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-+d4wMJSxEP3vzs2qZBElQRTZMXwgWH15Nyn2K/9XjKiHmh3sBuk1Un/IbcdMcYC4" crossorigin="anonymous">#}
-{#     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
-        <link href="https://bootswatch.com/4/united/bootstrap.min.css" rel="stylesheet" >
-{#    integrity="sha384-+d4wMJSxEP3vzs2qZBElQRTZMXwgWH15Nyn2K/9XjKiHmh3sBuk1Un/IbcdMcYC4" crossorigin="anonymous">#}
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha384-1OYccka9EByiS23wvPFiYHBPRAgU91xYVFb8g8sen6vRiBI5Uko6+B87q8zPGUnA" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Blockchain Voting</a>
+  <a class="navbar-brand" href="#">Online Election System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" placeholder="Search" type="text">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
   </div>
 </nav>
+<style>
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+}
+</style>
 <div style="margin-left:20px; margin-top:20px">
 {% block body %}{% endblock %}
 </div>
@@ -36,6 +35,16 @@
     Module made by <a href="https://github.com/aj163">Ashwin Joisa</a>,<a href="https://github.com/smarty1palak"> Palak Singhal</a> and <a href="https://github.com/sharanyakamath">Sharanya Kamath</a>
 </small>
 </footer>
+<style>
+.footer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 15px;
+    background-color:blanchedalmond;
+}
+</style>
 
 </body>
 </html>
