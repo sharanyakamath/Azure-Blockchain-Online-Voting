@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+<div class="jumbotron">
+  <h2 class="display-3">Voting made secure and easy</h2>
+  <p class="lead">You have been authorised!</p>
+  <hr class="my-4">
+  <form action="{% url 'email' %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <div class="form-group">
+        <div class="input-field col s6">
+            <input id="email" name="email" type="text" class="validate">
+            <label for="email">Enter your email ID</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="address" name="address" type="text" class="validate">
+            <label for="email">Enter your Etherium Blockchain Address</label>
+        </div>
+        <!-- <input class="form-control mr-sm-2" placeholder="Enter email ID" id= "email" name="email" type="text"><br/> -->
+        <!-- <input class="form-control mr-sm-2" placeholder="Enter your Etherium Blockchain Address" id="address" name="address" type="text"><br/> -->
+      </div>
+    </fieldset>
+    <button id="OTP" onclick="loading()" class="btn waves-effect waves-light" type="submit" name="action">Send OTP
+        <i class="material-icons right">send</i>
+  </button>
+  <div class="preloader-wrapper small active" id="loader">
+      <div class="spinner-layer spinner-green-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+<script>
+  $('#loader').hide();
+  function loading() {
+    $('#loader').show();
+    $('#OTP').hide();
+  }
+</script>
+
+{% endblock %}
