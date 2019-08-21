@@ -69,8 +69,6 @@ def index(request):
             return HttpResponseRedirect('/home')
         else:
             return render(request, 'verify.html')
-    else:
-        return render(request, 'verify.html')
 
 def verify(request):
     return render(request, 'verify.html')
@@ -96,18 +94,4 @@ def send_email(request):
 
     yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
     yag.send(to = request.POST['email'], subject ='Elections 2019', contents = email_message)
-    return render(request, 'home.html')
-
-def send_email(request):
-    email_message = """
-    Hi voter!
-
-    Here is your OTP : 
-    Please do cast your vote
-
-    Regards
-    Team WeAreInevitable
-    """
-    yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
-    yag.send(to = GMAIL_USERNAME, subject ='Elections 2019', contents = email_message)
     return render(request, 'success.html')
