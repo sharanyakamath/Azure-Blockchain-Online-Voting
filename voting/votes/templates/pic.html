@@ -5,7 +5,19 @@
 
 <!doctype html>
 <html>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    
     <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <title>Photo Capture</title>
         <meta charset='utf-8'>
         <link rel="stylesheet" href="main.css" type="text/css" media="all">
@@ -24,7 +36,7 @@
         {% csrf_token %}
       <fieldset>
         <div class="form-group">
-          <label for="Username">Username</label>
+          <!-- <label for="Username">Username</label> -->
           <input class="form-control mr-sm-2" placeholder="Enter username" id= "name" name="username" type="text">
        </div>
       </fieldset>
@@ -48,8 +60,30 @@
 </form>
 <form action="{% url 'authorize' %}" method="POST">
     {% csrf_token %}
-    <button class="btn btn-primary" type="submit">Verify Image and Username</button>
+    <button id="Verify" class="waves-effect waves-light btn" onclick="loading()">Verify Image and Username
+      </button>
+      <div class="preloader-wrapper small active" id="loader">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      
+    
 </form>
+
+<script>
+  $('#loader').hide();
+  function loading() {
+    $('#loader').show();
+    $('#Verify').hide();
+  }
+</script>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
