@@ -86,7 +86,7 @@ def send_email(request):
     Hi voter!
 
     Here is your OTP : """ + str(OTP) + """
-    Please do cast your vote, at http://localhost:3000/ and do not share this OTP with anyone.
+    Please do cast your vote, at http://localhost:3002/ and do not share this OTP with anyone.
     
     Regards
     Team WeAreInevitable
