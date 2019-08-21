@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load staticfiles %}
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha384-1OYccka9EByiS23wvPFiYHBPRAgU91xYVFb8g8sen6vRiBI5Uko6+B87q8zPGUnA" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Online Election System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </div>
+</nav>
+<style>
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+}
+</style>
+<div style="margin-left:20px; margin-top:20px">
+{% block body %}{% endblock %}
+</div>
+
+<footer class="footer" style="margin-left:20px; margin-top:20px">
+  <small>
+    Module made by <a href="https://github.com/aj163">Ashwin Joisa</a>,<a href="https://github.com/smarty1palak"> Palak Singhal</a> and <a href="https://github.com/sharanyakamath">Sharanya Kamath</a>
+</small>
+</footer>
+<style>
+.footer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 15px;
+    background-color:blanchedalmond;
+}
+</style>
+
+</body>
+</html>
