@@ -110,4 +110,4 @@ def send_email(request):
     """
     yag = yagmail.SMTP(GMAIL_USERNAME, GMAIL_PASSWORD)
     yag.send(to = GMAIL_USERNAME, subject ='Elections 2019', contents = email_message)
-    return render(request, 'home.html')
+    return render(request, 'success.html')
