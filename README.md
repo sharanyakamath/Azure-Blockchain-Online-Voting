@@ -1,3 +1,5 @@
+### Team : WeAreInevitable
+
 # Idea
 
 To make an online voting application using Azure Blockchain which can give the poll results immediately after the voting session, and is secure from any kind of manipulation of data. Since an online voting can be done remotely from anywhere in the world, authenticating and authorizing  the user is of utmost importance. To do this we use 2-factor authentication ,the first being facial recognition and the second being OTP verification.
